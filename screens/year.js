@@ -20,25 +20,21 @@ const data = [
     name: 'Luffy',
     year: '1973',
     gh: 'TGH',
-    room: 'T-abc',
   },
   {
     name: 'Naruto',
     year: '1983',
     gh: 'SAM',
-    room: 'S-abc',
   },
   {
     name: 'Goku',
     year: '1998',
     gh: 'TGH',
-    room: 'Tbcd',
   },
   {
     name: 'Sasuke',
     year: '1983',
     gh: 'SAM',
-    room: 'S-bcd',
   }
 ];
 
@@ -52,8 +48,8 @@ const data2 = [
 ];
 
 const Accoy = () => {
-  const [year, setYear] = useState('1973');
-  const [datalist, setDatalist] = useState(data2);
+  const [year, setYear] = useState();
+  const [datalist, setDatalist] = useState();
   const setYearFilter = (year) => {
     setDatalist([...data.filter((e) => e.year === year)]);
     setYear(year);
@@ -64,7 +60,6 @@ const Accoy = () => {
       <View key={index} style={styles.itemContainer}>
         <Text> {item.name} </Text>
         <Text> {item.gh} </Text>
-        <Text> {item.room} </Text>
       </View>
     );
   };
@@ -111,30 +106,34 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   btnTab: {
-    width: Dimensions.get('window').width / 3.15,
+    width: Dimensions.get('window').width /3.15,
     flexDirection: 'row',
-    borderWidth: 0.5,
-    borderColor: '#EBEBEB',
+    borderWidth: 1,
+    borderRadius:4,
+    borderColor: '#C2CFD8',
     padding: 10,
     justifyContent: 'center',
+    opacity: 0.5,
   },
   textTab: {
-    fontSize: 16,
+    fontSize: 20 ,
   },
   btnTabActive: {
-    //backgroundColor: '#E6838D',
-    borderBottomWidth: 3.5,
+    backgroundColor: '#91D8E4',
+    borderColor: '#543A3A',
+    opacity: 1,
   },
   textTabActive: {
-    //color: '#fff',
+
   },
   itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderWidth: 0.2,
+    backgroundColor: '#EAFDFC',
+    backgroundOpacity: 0.1,
+    borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: 5,
+    paddingHorizontal: 15, 
     paddingVertical: 15,
   },
-});
- 
+}); 

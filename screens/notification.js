@@ -109,7 +109,7 @@ const Notification = () => {
 
       <View style={styles.card}>
         <View style={styles.cardContent}>
-          <View>
+          <View style={styles.Content}>
             <Text style={styles.textf}>Event:</Text>
             <Text style={styles.textf}>Time:</Text>
             <Text style={styles.textf}>Venue:</Text>
@@ -129,7 +129,7 @@ const Notification = () => {
       </View>
       <View style={styles.card}>
         <View style={styles.cardContent}>
-          <View>
+          <View style={styles.Content}>
             <Text style={styles.textf}>Event:</Text>
             <Text style={styles.textf}>Time:</Text>
             <Text style={styles.textf}>Venue:</Text>
@@ -146,10 +146,9 @@ const Notification = () => {
             />
           </View>
         </View>
-      </View>
-      <View style={styles.card}>
+      </View><View style={styles.card}>
         <View style={styles.cardContent}>
-          <View>
+          <View style={styles.Content}>
             <Text style={styles.textf}>Event:</Text>
             <Text style={styles.textf}>Time:</Text>
             <Text style={styles.textf}>Venue:</Text>
@@ -166,10 +165,9 @@ const Notification = () => {
             />
           </View>
         </View>
-      </View>
-      <View style={styles.card}>
+      </View><View style={styles.card}>
         <View style={styles.cardContent}>
-          <View>
+          <View style={styles.Content}>
             <Text style={styles.textf}>Event:</Text>
             <Text style={styles.textf}>Time:</Text>
             <Text style={styles.textf}>Venue:</Text>
@@ -186,10 +184,9 @@ const Notification = () => {
             />
           </View>
         </View>
-      </View>
-      <View style={styles.card}>
+      </View><View style={styles.card}>
         <View style={styles.cardContent}>
-          <View>
+          <View style={styles.Content}>
             <Text style={styles.textf}>Event:</Text>
             <Text style={styles.textf}>Time:</Text>
             <Text style={styles.textf}>Venue:</Text>
@@ -207,6 +204,8 @@ const Notification = () => {
           </View>
         </View>
       </View>
+      
+      
     </ScrollView>
   );
 };
@@ -217,13 +216,16 @@ const styles = StyleSheet.create({
   },
   card: {
     marginHorizontal: 20,
-    marginVertical: 20,
+    marginVertical: 8,
+    borderRadius:8,
 
-    backgroundColor: 'rgba(0,255,0,0.2)',
+    backgroundColor: '#82AAE3',
   },
   cardContent: {
     marginVertical: 20,
-    marginLeft:20,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    
   },
   headtext: {
     fontSize: 30,
@@ -231,15 +233,17 @@ const styles = StyleSheet.create({
     fontWeight: 200,
   },
   textf: {
-    color: 'black',
+    color: 'white',
     fontWeight: '400',
     fontSize: 20,
+    
   },
 
   buttonContainer: {
     width: 50,
     borderColor: 'transparent',
     borderRadius: 3,
+    marginTop:25
   },
   buttonContainer1: {
     width: 50,
@@ -255,6 +259,10 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 200,
   },
+  Content:{
+    marginRight:90
+    
+  }
 });
 
 export default Notification;

@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
       throw err;
     }
     console.log('connected');
-    connection.query('SELECT * FROM login', (err, rows) => {
+    connection.query('SELECT * FROM loginn', (err, rows) => {
       connection.release(); // return the connection to pool
 
       if (!err) {
@@ -46,28 +46,28 @@ app.get('/', (req, res) => {
 
 
 
-app.post('/login', function (request, response, next) {
+app.post('/loginn', function (request, response, next) {
 
-  var user_email_address = request.body.user_email_address;
+  var email = request.body.email;
 
-  var user_password = request.body.user_password;
-// var loginName = 'login data';
-  if (user_email_address && user_password) {
+  var dob = request.body.dob;
+// var loginName = 'loginn data';
+  if (email && dob) {
    let query = `
-    SELECT * FROM login
-    WHERE email = "${user_email_address}"
+    SELECT * FROM loginn
+    WHERE email = "${email}"
     `;
 
     database.query(query, function (error, data) {
 console.log(data);
       if (data) {
         for (var count = 0; count < data.length; count++) {
-          console.log(data[count].password);
-          if (data[count].password == user_password) {
+          console.log(data[count].dob);
+          if (data[count].dob == dob) {
             // request.session.user_id = data[count].user_id;
 
             // response.redirect("/");
-            response.send("loggined");
+            response.send(data);
 
           }
           else {

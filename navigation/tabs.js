@@ -13,6 +13,7 @@ const Tabs = () => {
     <Tab.Navigator
       screenOptions={{
         showLabel: false,
+        
         style: {
           postion: 'absolute',
           bottom: 25,
@@ -43,7 +44,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Accomdation"
+        name="Accomadation"
         component={Accomodation}
         options={{
           tabBarIcon: ({focused}) => (
@@ -62,7 +63,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="19th AAM"
+        name="19 AAM"
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
@@ -81,7 +82,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Notifications"
+        name="Notification"
         component={Notification}
         options={{
           tabBarIcon: ({focused}) => (

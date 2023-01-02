@@ -8,11 +8,22 @@ import {
   TextInput,
   Button,
 } from 'react-native';
-
-const App = () => {
+import {AuthContext} from './context';
+const Login = () => {
   const [email, onChangeEmail] = React.useState(null);
   const [password, onChangePassword] = React.useState(null);
+  // const navigation = useNavigation();
 
+  const {login} = React.useContext(AuthContext);
+
+  async function loginfn() {
+ //   console.log(email, password);
+    try {
+      login(email, password);
+    } catch (error) {
+      console.log(error, 'error');
+    }
+  }
   return (
     <View style={styles.container}>
       <Image
@@ -30,9 +41,9 @@ const App = () => {
           resizeMode: 'contain',
           height: 50,
           width: 50,
-          marginTop:20,
-          marginBottom:10,
-          marginLeft:150
+          marginTop: 20,
+          marginBottom: 10,
+          marginLeft: 150,
         }}
         source={require('../images/login-img.png')}
       />
@@ -55,7 +66,15 @@ const App = () => {
           onChangeText={onChangePassword}
         />
       </SafeAreaView>
-      <Button style={styles.button} title="LOGIN" color="skyblue" />
+      <Button
+        style={styles.button}
+        title="LOGIN"
+        color="skyblue"
+        onPress={() => {
+          console.log('text before login');
+          loginfn();
+        }}
+      />
       <Text style={styles.texts1}>Forgot your password?</Text>
     </View>
   );
@@ -115,4 +134,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Login;

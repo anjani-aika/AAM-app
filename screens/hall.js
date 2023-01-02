@@ -1,63 +1,72 @@
 import React from 'react';
 import {useState} from 'react';
 import { StyleSheet, Text, View, Dimensions, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import axios from 'axios'
 
+async function getData(){
+  try{
+    const response=await axios.get('localhost:5000/acco');
+    console.log(response.data);
+  }catch(error){
+    console.error(error);
+  }
+}
+
+getData();
 
 // or any pure javascript modules available in npm
-const listTab = [
-  {
-    gh: 'TGH',
-  },
-  {
-    gh: 'SAM',
-  },
-];
 
-const data = [
-  {
-    name: 'Luffy',
-    year: '1973',
-    gh: 'TGH',
-    room: 'T-abc',
-  },
-  {
-    name: 'Naruto',
-    year: '1983',
-    gh: 'SAM',
-    room: 'S-abc',
-  },
-  {
-    name: 'Goku',
-    year: '1998',
-    gh: 'TGH',
-    room: 'T-bcd',
-  },
-  {
-    name: 'Sasuke',
-    year: '1983',
-    gh: 'SAM',
-    room: 'S-bcd',
-  }
-];
-
-const data2 = [
-  {
-    name: 'Luffy',
-    year: '1973',
-    gh: 'TGH',
-    room: 'T-abc',
-  },
-  {
-    name: 'Goku',
-    year: '1998',
-    gh: 'TGH',
-    room: 'T-bcd',
-  },
-];
 
 const Accogh = () => {
-  const [gh, setGh] = useState('TGH')
-  const [datalist, setDatalist] = useState(data2)
+
+  const listTab = [
+    {
+      gh: 'TGH',
+    },
+    {
+      gh: 'SAM',
+    },
+  ];
+  
+  const data = [
+    {
+      name: 'Luffy',
+      year: '1973',
+      gh: 'TGH',
+    },
+    {
+      name: 'Naruto',
+      year: '1983',
+      gh: 'SAM',
+    },
+    {
+      name: 'Goku',
+      year: '1998',
+      gh: 'TGH',
+    },
+    {
+      name: 'Sasuke',
+      year: '1983',
+      gh: 'SAM',
+    }
+  ];
+  
+  const data2 = [
+    {
+      name: 'Luffy',
+      year: '1973',
+      gh: 'TGH',
+    },
+    {
+      name: 'Goku',
+      year: '1998',
+      gh: 'TGH',
+    },
+];
+
+  
+  const [gh, setGh] = useState()
+  const [datalist, setDatalist] = useState()
   const setGhFilter = gh => { 
       setDatalist([...data.filter(e => e.gh === gh)])
       setGh(gh)
@@ -67,7 +76,6 @@ const Accogh = () => {
     return(
       <View key={index} style={styles.itemContainer}>
         <Text> {item.name} </Text>
-        <Text> {item.room} </Text>
       </View> 
     )
   }
@@ -86,7 +94,7 @@ const Accogh = () => {
           style={[styles.btnTab, gh === e.gh && styles.btnTabActive]} 
           onPress={() => setGhFilter(e.gh)}
           >
-          <Text style = {styles.textTab, gh === e.gh && styles.textTabActive}>
+          <Text style = {[styles.textTab, gh === e.gh && styles.textTabActive]}>
             {e.gh}
           </Text>
         </TouchableOpacity>) ) 
@@ -107,39 +115,44 @@ export default Accogh
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     paddingHorizontal: 10,
     justifyContent: 'center',
   },
-  listTab:{
+  listTab: {
     flexDirection: 'row',
     alignSelf: 'center',
-    marginBottom: 20, 
+    marginBottom: 20,
   },
-  btnTab:{
-    width: Dimensions.get('window').width / 2.1,
+  btnTab: {
+    width: Dimensions.get('window').width /2.15,
     flexDirection: 'row',
-    borderWidth: 0.5,
-    borderColor: '#EBEBEB',
+    borderWidth: 1,
+    borderRadius:4,
+    borderColor: '#C2CFD8',
     padding: 10,
     justifyContent: 'center',
+    opacity: 0.5,
   },
-  textTab:{
-    fontSize: 16, 
+  textTab: {
+    fontSize: 20 ,
   },
-  btnTabActive:{
-    //backgroundColor: '#E6838D',
-    borderBottomWidth: 3.5,
+  btnTabActive: {
+    backgroundColor: '#91D8E4',
+    borderColor: '#543A3A',
+    opacity: 1,
   },
-  textTabActive:{
-    //color: '#fff',
+  textTabActive: {
+
   },
-  itemContainer:{
+  itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderWidth: 0.2,
+    backgroundColor: '#EAFDFC',
+    backgroundOpacity: 0.1,
+    borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: 5,
+    paddingHorizontal: 15, 
     paddingVertical: 15,
   },
-})
+});

@@ -39,8 +39,8 @@ const Home = () => {
         </View>
       </Modal>
       <View>
-        <Text style={styles.blue}>Hello,</Text>
-        <Text style={styles.red}>XYZ</Text>
+        <Text style={styles.blue}><Text style={{fontWeight:'bold'}}>Greetings!{"\n"}</Text>Welcome to 19th Annual Alumni   Meet</Text>
+        
       </View>
       <Text style={styles.para}>
         Thank you for registering with us.Hope you reunite with your old
