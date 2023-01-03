@@ -27,30 +27,7 @@ const pool = mysql.createPool({
 
   //get all datas
 
-  app.get('/profile',(req,res)=>{
 
-    var user_email_address = req.body.user_email_address;
-
-    pool.getConnection((err,connection)=>{
-        if(err) throw err
-       // console.log(`connected as id ${connection.threadId}`)
-
-       //query(sqlString,callback)
-    //    where = 'email = ?';
-    //    values = user_email_address ;
-       var sql = 'SELECT * FROM aam_app___sheet1 WHERE email=?' ;
-       connection.query(sql,[user_email_address],(err,rows)=>{
-
-        if(!err){
-            res.send(rows)
-        }else{
-            console.log(err)
-        }
-       })
-
-
-    })
-  })
 
   //get data by id
 //   app.get('/:id',(req,res)=>{

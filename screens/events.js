@@ -1,9 +1,9 @@
 import React from 'react';
 import{useState} from 'react';
 import {StyleSheet, Text, View, Dimensions, FlatList, SafeAreaView, TouchableOpacity,} from 'react-native';
-// import Dayone from './components/Dayone';
-// import Daytwo from './components/Daytwo';
-// import Daythree from './components/Daythree';
+import Dayone from './components/Dayone';
+import Daytwo from './components/Daytwo';
+import Daythree from './components/Daythree';
 
 const listTab = [
   {
@@ -20,22 +20,22 @@ const listTab = [
 const data = [
   {
     choice: '6th Jan',
-    // display: <Dayone />,
+     display: <Dayone/>,
   },
-  // {
-  //   choice: '7th Jan',
-  //   display: <Daytwo />,
-  // },
+   {
+     choice: '7th Jan',
+     display: <Daytwo />,
+   },
   {
     choice: '8th Jan',
-    // display: <Daythree />,
+    display: <Daythree />,
   },
 ];
 
 const data2 = [
   {
     choice: '6th Jan',
-    // display: <Dayone />,
+    display: <Dayone />,
   },
 ];
 

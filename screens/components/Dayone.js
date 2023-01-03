@@ -1,150 +1,162 @@
+import * as React from 'react';
+import { useState } from 'react';
+import {StyleSheet, Text, View, Dimensions, FlatList, SafeAreaView, TouchableOpacity,} from 'react-native';
+//import Constants from 'expo-constants';
 
-// import * as React from 'react';
-// import { useState } from 'react';
-// import {StyleSheet, Text, View, Dimensions, FlatList, SafeAreaView, TouchableOpacity,} from 'react-native';
+// or any pure javascript modules available in npm
+const listTab = [
+  {
+    title: 'Time',
+  },
+  {
+    title: 'Event',
+  },
+  {
+    title: 'Venue',
+  }
+];
 
-// // or any pure javascript modules available in npm
-// const listTab = [
-//   {
-//     title: 'Time',
-//   },
-//   {
-//     title: 'Event',
-//   },
-//   {
-//     title: 'Venue',
-//   }
-// ];
+const data = [
+  {
+    time: '8:00 am to 10:00 am',
+    event: 'Breakfast',
+    venue: 'Arena',
+  },
+  {
+    time: '9:00 am to 12:00 pm ',
+    event: 'Registration',
+    venue: 'Arena',
+  },
+  {
+    time: '12:00 pm to 1:30 pm',
+    event: 'Lunch',
+    venue: 'Arena',
+  },
+  {
+    time: '1:30 pm to 3:30 pm',
+    event: 'Institute Function',
+    venue: 'Kalidas Auditorium',
+  },
+  {
+    time: '3:30 pm to 5:30 pm',
+    event: 'Dept. Visit',
+    venue: 'Pick from Arena, drop at Dept.',
+  },
+  {
+    time: '5:30 pm to 7:00 pm',
+    event: 'Interactive Session',
+    venue: 'Auditorium',
+  },
+  {
+    time: '7:00 pm to 8:00 pm',
+    event: 'Be the changemaker',
+    venue: 'Bhatnagar Auditorium',
+  },
+  {
+    time: '8:00 pm to 10:00 pm',
+    event: 'Dinner',
+    venue: 'Arena',
+  },
+  {
+    time: '10:00 pm to 11:30 pm',
+    event: 'Hall Visit',
+    venue: 'Pick from Arena, drop at Hall',
+  },
+];
 
-// const data = [
-//   {
-//     time: '8:00 am to 10:00 am',
-//     event: 'Breakfast',
-//     venue: 'Arena',
-//   },
-//   {
-//     time: '9:00 am to 12:00 pm ',
-//     event: 'Registration',
-//     venue: 'Arena',
-//   },
-//   {
-//     time: '12:00 pm to 1:30 pm',
-//     event: 'Lunch',
-//     venue: 'Arena',
-//   },
-//   {
-//     time: '1:30 pm to 3:30 pm',
-//     event: 'Institute Function',
-//     venue: 'Kalidas Auditorium',
-//   },
-//   {
-//     time: '3:30 pm to 5:30 pm',
-//     event: 'Dept. Visit',
-//     venue: 'Pick from Arena, drop at Dept.',
-//   },
-//   {
-//     time: '5:30 pm to 8:00 pm',
-//     event: 'Interactive Session',
-//     venue: 'Auditorium',
-//   },
-//   {
-//     time: '8:00 pm to 10:00 pm',
-//     event: 'Dinner',
-//     venue: 'Arena',
-//   },
-//   {
-//     time: '10:00 pm to 11:30 pm',
-//     event: 'Hall Visit',
-//     venue: 'Pick from Arena, drop at Hall',
-//   },
-// ];
+const Dayone = () => {
+  const [title, settitle] = useState();
+  const [datalist, setDatalist] = useState(data);
 
-// const Dayone = () => {
-//   const [title, settitle] = useState();
-//   const [datalist, setDatalist] = useState(data);
-
-//   const renderItem = ({ item, index }) => {
-//     return (
-//       <View key={index} style={styles.itemContainer}>
-//         <Text style={styles.textContainer}> {item.time} </Text>
-//         <Text style={styles.textContainer}> {item.event} </Text>
-//         <Text style={styles.textContainer}> {item.venue} </Text>
-//       </View>
-//     );
-//   };
+  const renderItem = ({ item, index }) => {
+    return (
+      <View key={index} style={styles.itemContainer}>
+        <Text style={styles.textContainer}> {item.time} </Text>
+        <Text style={styles.textContainer}> {item.event} </Text>
+        <Text style={styles.textContainer}> {item.venue} </Text>
+      </View>
+    );
+  };
 
 
-//   const separator = () => {
-//     return <View style={{ height: 1 }} />;
-//   };
+  const separator = () => {
+    return <View style={{ height: 1 }} />;
+  };
 
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <View style={styles.listTab}>
-//         {listTab.map((e) => (
-//           <TouchableOpacity 
-//             style={[styles.btnTab]} >
-//             <Text
-//               style={(styles.textTab)}>
-//               {e.title}
-//             </Text>
-//           </TouchableOpacity>
-//         ))}
-//       </View>
-//       <FlatList
-//         data={datalist}
-//         keyExtractor={(e, i) => i.toString()}
-//         renderItem={renderItem}
-//         ItemSeparatorComponent={separator}
-//       />
-//     </SafeAreaView>
-//   );
-// };
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.listTab}>
+        {listTab.map((e) => (
+          <View 
+            style={styles.btnTab} >
+            <Text
+              style={(styles.textTab)}>
+              {e.title}
+            </Text>
+          </View>
+        ))}
+      </View>
+      <FlatList
+        data={datalist}
+        keyExtractor={(e, i) => i.toString()}
+        renderItem={renderItem}
+        ItemSeparatorComponent={separator}
+      />
+    </SafeAreaView>
+  );
+};
 
-// export default Dayone;
+export default Dayone;
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     paddingHorizontal: 10,
-//     justifyContent: 'center',
-//   },
-//   listTab: {
-//     flexDirection: 'row',
-//     alignSelf: 'center',
-//     marginBottom: 10,
-//   },
-//   btnTab: {
-//     width: Dimensions.get('window').width / 3.1,
-//     flexDirection: 'row',
-//     borderWidth: 1,
-//     borderRadius:4,
-//     borderColor: '#C2CFD8',
-//     backgroundColor: '#205295',
-//     padding: 10,
-//     justifyContent: 'center',
-//     opacity: 1,
-
-//   },
-//   textTab: {
-//     fontSize: 20,
-//     color: 'white',
-//     fontWeight: "bold",
-//   },
-//   itemContainer:{
-//     flexDirection: 'row',
-//   },
-//   textContainer:{
-//     width: Dimensions.get('window').width / 3.1,
-//     borderWidth: 2,
-//     borderRadius: 7,
-//     borderColor: 'white',
-//     backgroundColor: '#2C74B3',
-//     padding: 10,
-//     justifyContent: 'center',
-//     opacity: 1,
-//     fontSize: 16,
-//     color: 'white',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+    paddingRight:20
+  },
+  listTab: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginBottom: 10,
+    paddingRight:0,
+  },
+  btnTab: {
+    width: Dimensions.get('window').width / 3.0,
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderRadius:4,
+    borderColor: '#C2CFD8',
+    backgroundColor: '#205295',
+    padding: 10,
+    justifyContent: 'center',
+    opacity: 1,
+    marginRight:0
+  },
+  textTab: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: "bold",
+    marginRight:0
+  },
+  itemContainer:{
+    flex: 1,
+    paddingHorizontal: '0.5%',
+    flexDirection: 'row',
+    marginRight:0,
+  },
+  textContainer:{
+    width: Dimensions.get('window').width / 3.4,
+    borderWidth: 2,
+    borderRadius: 7,
+    borderColor: 'white',
+    backgroundColor: '#2C74B3',
+    padding: 10,
+    justifyContent: 'center',
+    opacity: 1,
+    fontSize: 16,
+    color: 'white',
+   // marginRight:10,
+  },
+});
  

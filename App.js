@@ -2,7 +2,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabs from './navigation/tabs';
 import messaging from '@react-native-firebase/messaging';
-import React, {useEffect, useMemo, useReducer} from 'react';
+import React, {useEffect, useMemo, useReducer, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import Login from './screens/login';
 import NotiComp from './screens/notiComp';
@@ -14,7 +14,9 @@ const App = () => {
   const initialLoginState = {
     username: null,
     userToken: null,
+    ftoken: null,
   };
+  const [firetoken, setFiretoken] = useState('');
   const loginReducer = (prevState, action) => {
     switch (action.type) {
       case 'RETRIVE_TOKEN':
@@ -37,12 +39,13 @@ const App = () => {
         };
     }
   };
+
   const [loginState, dispatch] = useReducer(loginReducer, initialLoginState);
   const authContext = useMemo(() => ({
     login: async (email, password) => {
       try {
         const data = await axios.post(
-          'https://10dd-203-110-242-40.in.ngrok.io/loginn',
+          'https://38b2-203-110-242-40.in.ngrok.io/loginn',
           {
             email: email,
             dob: password,
@@ -59,8 +62,8 @@ const App = () => {
           );
           dispatch({
             type: 'LOGIN',
-            id: data.data.email,
-            token: data.data.email,
+            id: data.data[0].email,
+            token: data.data[0].email,
           });
           console.log('LOginState', loginState);
         }
@@ -79,16 +82,18 @@ const App = () => {
   }));
 
   useEffect(() => {
-    const timeOut = setTimeout(() => {
+    const timeOut = setTimeout(async () => {
       let userToken1 = null;
+      let fToken1 = null;
       try {
-        AsyncStorage.getItem('userToken').then(res => {
+        await AsyncStorage.getItem('userToken').then(res => {
           userToken1 = res;
           if (userToken1) {
             const {userToken} = JSON.parse(userToken1);
             dispatch({type: 'RETRIVE_TOKEN', token: userToken});
           }
         });
+        // await checktoken();
       } catch (err) {
         console.log(err);
       }
@@ -97,13 +102,18 @@ const App = () => {
       };
     }, 1000);
   }, []);
+  //  useEffect(() => {
+  //console.log('sdhaisd');
+
+  //    console.log(loginState.ftoken, 'sas');
+  //rr  }, []);
   return (
     <AuthContext.Provider value={authContext}>
       <NotiComp />
       <NavigationContainer>
         <Stack.Navigator>
           {loginState.userToken != null ? (
-            <Stack.Screen name="home" component={Tabs} />
+            <Stack.Screen name="Annual Alumni Meet" component={Tabs} />
           ) : (
             // console.log(loginState)
             <Stack.Screen name="login" component={Login} />

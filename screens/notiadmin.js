@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -12,27 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
-import {useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import {useState} from 'react';
-import {text} from 'express';
-import * as React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Button,
-  Linking,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
-import messaging from '@react-native-firebase/messaging';
-import {useEffect} from 'react';
-import firestore from '@react-native-firebase/firestore';
-import {useState} from 'react';
 import {text} from 'express';
 
 // const sendNoti = () => {
@@ -60,7 +40,7 @@ import {text} from 'express';
 //     });
 // };
 
-const Notification = () => {
+const Notiadmin = () => {
   const [text, setText] = useState('');
   const [text2, settext2] = useState('');
   const sendNoti = () => {
@@ -72,7 +52,7 @@ const Notification = () => {
           return docSnap.data().token;
         });
         console.log(userDevicetoken);
-        fetch('https://082e-202-142-65-225.in.ngrok.io/send-noti', {
+        fetch('https://87b1-203-110-242-40.in.ngrok.io/send-noti', {
           method: 'post',
           headers: {
             Accept: 'application/json',
@@ -103,7 +83,7 @@ const Notification = () => {
         }}
         source={require('../images/bell.png')}
       />
-      <Text style={styles.headtext}>Notifications</Text>
+      <Text style={styles.headtext}>Notiadmins</Text>
     </View> */}
 
       <Text style={styles.textf}>Notification Title</Text>
@@ -130,9 +110,6 @@ const Notification = () => {
     /> */}
         <Button title="Noti" onPress={() => sendNoti()} />
       </View>
-
-      
-        
     </ScrollView>
   );
 };
@@ -144,7 +121,7 @@ const styles = StyleSheet.create({
   card: {
     marginHorizontal: 20,
     marginVertical: 10,
-    
+
     backgroundColor: 'rgba(0,255,0,0.2)',
   },
   cardContent: {
@@ -159,22 +136,19 @@ const styles = StyleSheet.create({
   textf: {
     color: 'black',
     fontWeight: '400',
-    fontSize:20
-    
+    fontSize: 20,
   },
 
   buttonContainer: {
     width: 50,
     borderColor: 'transparent',
-    borderRadius:3
-    
+    borderRadius: 3,
   },
   buttonContainer1: {
     width: 50,
     fontColor: 'black',
     borderColor: 'transparent',
-    marginLeft:40,
-    
+    marginLeft: 40,
   },
 
   input: {
@@ -186,8 +160,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Notification;
+export default Notiadmin;
 
 //https://www.google.com/maps?q=iit+kharagpur&sa=X&ved=2ahUKEwi5kvrlkvn7AhVc6jgGHXM2CdMQ0pQJegQICBAB
 //https://www.google.com/maps?q=kalidas+auditorium+iit+kharagpur&sa=X&ved=2ahUKEwj0o4bElPn7AhVn4DgGHWxwBJgQ0pQJegQICBAB
-

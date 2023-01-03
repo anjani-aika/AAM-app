@@ -1,17 +1,8 @@
-import React, {useEffect} from 'react';
-import {useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  FlatList,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import * as React from 'react';
+import { useState } from 'react';
+import {StyleSheet, Text, View, Dimensions, FlatList, SafeAreaView, TouchableOpacity,} from 'react-native';
 import Accoy from './year';
 import Accogh from './hall';
-import axios from 'axios';
 
 // or any pure javascript modules available in npm
 
@@ -42,37 +33,35 @@ const data2 = [
   },
 ];
 
-export default function Accomodation() {
+export default function App() {
   const [choice, setChoice] = useState('Guest House');
   const [datalist, setDatalist] = useState(data2);
-  const setChoiceFilter = choice => {
-    setDatalist([...data.filter(e => e.choice === choice)]);
+  const setChoiceFilter = (choice) => {
+    setDatalist([...data.filter((e) => e.choice === choice)]);
     setChoice(choice);
   };
 
-  const renderItem = ({item, index}) => {
+  const renderItem = ({ item, index }) => {
     return (
-      <View key={index.toString()} style={styles.itemContainer}>
+      <View key={index} style={styles.itemContainer}>
         {item.display}
       </View>
     );
   };
 
   const separator = () => {
-    return <View style={{height: 1}} />;
+    return <View style={{ height: 1 }} />;
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.listTab}>
-        {listTab.map(e => (
+        {listTab.map((e) => (
           <TouchableOpacity
             style={[styles.btnTab, choice === e.choice && styles.btnTabActive]}
             onPress={() => setChoiceFilter(e.choice)}>
             <Text
-              style={
-                (styles.textTab, choice === e.choice && styles.textTabActive)
-              }>
+              style={(styles.textTab, choice === e.choice && styles.textTabActive)}>
               {e.choice}
             </Text>
           </TouchableOpacity>
@@ -97,30 +86,35 @@ const styles = StyleSheet.create({
   listTab: {
     flexDirection: 'row',
     alignSelf: 'center',
-    marginBottom: 20,
+    marginBottom: 0.01,
   },
   btnTab: {
-    width: Dimensions.get('window').width / 2.1,
+    width: Dimensions.get('window').width /2.1,
     flexDirection: 'row',
-    borderWidth: 0.5,
-    borderColor: '#EBEBEB',
+    borderWidth: 1,
+    borderRadius:4,
+    borderColor: '#C2CFD8',
     padding: 10,
     justifyContent: 'center',
+    opacity: 0.5,
   },
   textTab: {
-    fontSize: 16,
-    fontColor: 'black',
-    fontWeight: '400',
+    fontWeight: "bold",
+    fontSize: 20 ,
+    color:'black'
   },
   btnTabActive: {
-    //backgroundColor: '#E6838D',
-    borderBottomWidth: 3.5,
+    backgroundColor: '#82AAE3',
+    borderColor: '#543A3A',
+    //borderBottomWidth: 3.5,
+    opacity: 1,
   },
   textTabActive: {
-    //color: '#fff',
+    color: 'black',
   },
   itemContainer: {
     flexDirection: 'row',
     paddingVertical: 15,
   },
 });
+ 

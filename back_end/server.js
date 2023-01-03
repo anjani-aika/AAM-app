@@ -5,13 +5,19 @@ const mysql = require('mysql');
 var database = require('./db');
 const app = express();
 const router = express.Router();
+var admin = require('firebase-admin');
 const port = process.env.PORT || 5000;
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 
 // parse application/json
 app.use(bodyParser.json());
+
+var serviceAccount = require('./sac-app-5d1f8-firebase-adminsdk-s6o4n-1d16ef6cd5.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 // MySQL
 const pool = mysql.createPool({
@@ -44,22 +50,19 @@ app.get('/', (req, res) => {
   });
 });
 
-
-
 app.post('/loginn', function (request, response, next) {
-
   var email = request.body.email;
 
   var dob = request.body.dob;
-// var loginName = 'loginn data';
+  // var loginName = 'loginn data';
   if (email && dob) {
-   let query = `
+    let query = `
     SELECT * FROM loginn
     WHERE email = "${email}"
     `;
 
     database.query(query, function (error, data) {
-console.log(data);
+      console.log(data);
       if (data) {
         for (var count = 0; count < data.length; count++) {
           console.log(data[count].dob);
@@ -68,24 +71,85 @@ console.log(data);
 
             // response.redirect("/");
             response.send(data);
-
-          }
-          else {
+          } else {
             response.send('Incorrect Password');
           }
         }
-      }
-      else {
+      } else {
         response.send('Incorrect Email Address');
       }
       response.end();
     });
-  }
-  else {
+  } else {
     response.send('Please Enter Email Address and Password Details');
     response.end();
   }
+});
 
+app.post('/send-noti', (req, res) => {
+  console.log(req.body);
+
+  // console.log(req.body.n
+  // console.log(req.titleN)
+  //    const message = {
+  //     notification:{
+  //         title:"new ad",
+  //         body:"new ad posted click to open"
+  //     },
+  //     tokens:req.body.tokens
+  // }
+  // const message = {
+  //     notification:{
+  //         title:"new Notification",
+  //         body:"new ad posted"
+  //     },
+  //     token:'fGgVuiogRJq9RKUc1cLLNH:APA91bGJsrpbLLnUKDIkXD5LYVCxWFl8Jv5kkGPlUwR1RSXhCpmgwh6x3OLNFzZA5SZAGUG5qjeh0oh30HribpHhpLBQ8xOTLkvSqsb2xZChqAtoT3MG6rqSgfiDijpJDVNRozi4CCAy'
+  // }
+  // admin.messaging().send(message).then(res=>{
+  //     console.log("send success")
+  // }).catch(err=>{
+  //     console.log(err)
+  // })
+  for (var count = 0; count < req.body.tokens.length; count++) {
+    const message = {
+      notification: {
+        title: req.body.title,
+        body: req.body.subTitle,
+      },
+      token: req.body.tokens[count],
+    };
+    admin
+      .messaging()
+      .send(message)
+      .then(res => {
+        console.log('send success');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+});
+
+app.post('/profile', (req, res) => {
+  var email = req.body.email;
+  //console.log(email);
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    // console.log(`connected as id ${connection.threadId}`)
+
+    //query(sqlString,callback)
+    //    where = 'email = ?';
+    //    values = email ;
+    var sql = 'SELECT * FROM loginn WHERE email=?';
+    connection.query(sql, [email], (err, rows) => {
+      if (!err) {
+        //console.log('roes', rows);
+        res.send(rows);
+      } else {
+        console.log(err);
+      }
+    });
+  });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

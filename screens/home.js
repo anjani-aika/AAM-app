@@ -115,8 +115,8 @@ const styles = StyleSheet.create({
     height: 210,
     backgroundColor: 'rgba(0,255,0,0.2)',
     marginTop: 20,
-    marginLeft: 40,
-
+    marginLeft: 18,
+    marginRight:0,
     borderRadius: 20,
   },
   first1: {
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '700',
     color: 'rgba(0,0,0,0.7)',
+    
   },
   modal: {
     flex: 1,

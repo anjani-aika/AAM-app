@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -14,7 +14,6 @@ import {
 import messaging from '@react-native-firebase/messaging';
 import {useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import {useState} from 'react';
 import {text} from 'express';
 
 // const sendNoti = () => {
@@ -43,33 +42,6 @@ import {text} from 'express';
 // };
 
 const Notification = () => {
-  const [text, setText] = useState('');
-  const [text2, settext2] = useState('');
-  const sendNoti = () => {
-    firestore()
-      .collection('usertoken')
-      .get()
-      .then(querySnap => {
-        const userDevicetoken = querySnap.docs.map(docSnap => {
-          return docSnap.data().token;
-        });
-        console.log(userDevicetoken);
-        fetch('https://082e-202-142-65-225.in.ngrok.io/send-noti', {
-          method: 'post',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-
-          body: JSON.stringify({
-            tokens: userDevicetoken,
-            title: text, //Event name
-            subTitle: text2, // Venue  andTime
-          }),
-        });
-      });
-  };
-
   return (
     <ScrollView style={styles.container}>
       {/* <View style={{flexDirection:'row'}}>
@@ -146,45 +118,8 @@ const Notification = () => {
             />
           </View>
         </View>
-      </View><View style={styles.card}>
-        <View style={styles.cardContent}>
-          <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
-          </View>
-          <View style={styles.buttonContainer}>
-            <Button
-              title="Map"
-              onPress={() => {
-                Linking.openURL(
-                  `https://www.google.com/maps?q=kalidas+auditorium+iit+kharagpur&sa=X&ved=2ahUKEwj0o4bElPn7AhVn4DgGHWxwBJgQ0pQJegQICBAB`,
-                );
-              }}
-              color="#afbfe1"
-            />
-          </View>
-        </View>
-      </View><View style={styles.card}>
-        <View style={styles.cardContent}>
-          <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
-          </View>
-          <View style={styles.buttonContainer}>
-            <Button
-              title="Map"
-              onPress={() => {
-                Linking.openURL(
-                  `https://www.google.com/maps?q=kalidas+auditorium+iit+kharagpur&sa=X&ved=2ahUKEwj0o4bElPn7AhVn4DgGHWxwBJgQ0pQJegQICBAB`,
-                );
-              }}
-              color="#afbfe1"
-            />
-          </View>
-        </View>
-      </View><View style={styles.card}>
+      </View>
+      <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.Content}>
             <Text style={styles.textf}>Event:</Text>
@@ -204,8 +139,46 @@ const Notification = () => {
           </View>
         </View>
       </View>
-      
-      
+      <View style={styles.card}>
+        <View style={styles.cardContent}>
+          <View style={styles.Content}>
+            <Text style={styles.textf}>Event:</Text>
+            <Text style={styles.textf}>Time:</Text>
+            <Text style={styles.textf}>Venue:</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title="Map"
+              onPress={() => {
+                Linking.openURL(
+                  `https://www.google.com/maps?q=kalidas+auditorium+iit+kharagpur&sa=X&ved=2ahUKEwj0o4bElPn7AhVn4DgGHWxwBJgQ0pQJegQICBAB`,
+                );
+              }}
+              color="#afbfe1"
+            />
+          </View>
+        </View>
+      </View>
+      <View style={styles.card}>
+        <View style={styles.cardContent}>
+          <View style={styles.Content}>
+            <Text style={styles.textf}>Event:</Text>
+            <Text style={styles.textf}>Time:</Text>
+            <Text style={styles.textf}>Venue:</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title="Map"
+              onPress={() => {
+                Linking.openURL(
+                  `https://www.google.com/maps?q=kalidas+auditorium+iit+kharagpur&sa=X&ved=2ahUKEwj0o4bElPn7AhVn4DgGHWxwBJgQ0pQJegQICBAB`,
+                );
+              }}
+              color="#afbfe1"
+            />
+          </View>
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -217,7 +190,7 @@ const styles = StyleSheet.create({
   card: {
     marginHorizontal: 20,
     marginVertical: 8,
-    borderRadius:8,
+    borderRadius: 8,
 
     backgroundColor: '#82AAE3',
   },
@@ -225,7 +198,6 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    
   },
   headtext: {
     fontSize: 30,
@@ -236,14 +208,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '400',
     fontSize: 20,
-    
   },
 
   buttonContainer: {
     width: 50,
     borderColor: 'transparent',
     borderRadius: 3,
-    marginTop:25
+    marginTop: 25,
   },
   buttonContainer1: {
     width: 50,
@@ -259,10 +230,9 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 200,
   },
-  Content:{
-    marginRight:90
-    
-  }
+  Content: {
+    marginRight: 90,
+  },
 });
 
 export default Notification;

@@ -1,7 +1,7 @@
-
+import * as React from 'react';
 import { useState } from 'react';
 import {StyleSheet, Text, View, Dimensions, FlatList, SafeAreaView, TouchableOpacity,} from 'react-native';
-
+//import Constants from 'expo-constants';
 
 // or any pure javascript modules available in npm
 const listTab = [
@@ -15,7 +15,7 @@ const listTab = [
     title: 'Venue',
   }
 ];
-import * as React from 'react';
+
 const data = [
   {
     time: '7:00 am to 8:15 am',
@@ -62,13 +62,13 @@ const Dayone = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.listTab}>
         {listTab.map((e) => (
-          <TouchableOpacity 
+          <View 
             style={[styles.btnTab]} >
             <Text
               style={(styles.textTab)}>
               {e.title}
             </Text>
-          </TouchableOpacity>
+          </View>
         ))}
       </View>
       <FlatList
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   btnTab: {
-    width: Dimensions.get('window').width / 3.1,
+    width: Dimensions.get('window').width / 3.0,
     flexDirection: 'row',
     borderWidth: 1,
     borderRadius:4,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   textContainer:{
-    width: Dimensions.get('window').width / 3.1,
+    width: Dimensions.get('window').width / 3.4,
     borderWidth: 2,
     borderRadius: 7,
     borderColor: 'white',
@@ -127,3 +127,4 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+ 

@@ -17,7 +17,7 @@ const Login = () => {
   const {login} = React.useContext(AuthContext);
 
   async function loginfn() {
- //   console.log(email, password);
+   console.log(email, password);
     try {
       login(email, password);
     } catch (error) {
