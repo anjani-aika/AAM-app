@@ -9,6 +9,7 @@ import NotiComp from './screens/notiComp';
 import {AuthContext} from './screens/context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import SplashScreen from './screens/splashscreen';
 const Stack = createNativeStackNavigator();
 const App = () => {
   const initialLoginState = {

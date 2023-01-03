@@ -6,6 +6,7 @@ import Profile from '../screens/profile';
 import Navigation from '../screens/navigation';
 import Notification from '../screens/notification';
 import {View, Image} from 'react-native';
+import {Icon} from '@rneui/themed';
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
@@ -31,14 +32,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <View>
-              <Image
-                source={require('../assets/h4.jpg')}
-                resizeMode="contain"
-                style={{
-                  width: 35,
-                  height: 35,
-                }}
-              />
+              <Icon name="event" />
             </View>
           ),
         }}
@@ -50,14 +44,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <View>
-              <Image
-                source={require('../assets/h2.webp')}
-                resizeMode="contain"
-                style={{
-                  width: 30,
-                  height: 35,
-                }}
-              />
+              <Icon name="hotel" />
             </View>
           ),
         }}
@@ -69,14 +56,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <View>
-              <Image
-                source={require('../assets/home.png')}
-                resizeMode="contain"
-                style={{
-                  width: 35,
-                  height: 35,
-                }}
-              />
+              <Icon name="home" />
             </View>
           ),
         }}
@@ -88,14 +68,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <View>
-              <Image
-                source={require('../images/bell.png')}
-                resizeMode="contain"
-                style={{
-                  width: 35,
-                  height: 35,
-                }}
-              />
+              <Icon name="navigation" />
             </View>
           ),
         }}
@@ -106,14 +79,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <View>
-              <Image
-                source={require('../assets/h1.webp')}
-                resizeMode="contain"
-                style={{
-                  width: 35,
-                  height: 35,
-                }}
-              />
+              <Icon name="person" />
             </View>
           ),
         }}
