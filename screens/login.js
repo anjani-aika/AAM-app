@@ -8,6 +8,8 @@ import {
   TextInput,
   Button,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 import {AuthContext} from './context';
 const Login = () => {
   const [email, onChangeEmail] = React.useState(null);
@@ -25,6 +27,7 @@ const Login = () => {
     }
   }
   return (
+    <ScrollView>
     <View style={styles.container}>
       <Image
         style={{
@@ -76,7 +79,7 @@ const Login = () => {
         }}
       />
       <Text style={styles.texts1}>Forgot your password?</Text>
-    </View>
+    </View></ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'black',
-    fontSize: 32,
+    fontSize:28,
     fontWeight: 'bold',
     justifyContent: 'center',
   },
@@ -119,6 +122,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     marginBottom: 38,
+    color: "black",
+    
   },
 
   texts1: {
@@ -131,6 +136,7 @@ const styles = StyleSheet.create({
 
   email: {
     marginLeft: 23,
+    color:"black",
   },
 });
 

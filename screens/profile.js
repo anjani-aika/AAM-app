@@ -29,7 +29,7 @@ const Profile = () => {
         if (username) {
           //console.log(username);
           const data = await axios.post(
-            ' https://38b2-203-110-242-40.in.ngrok.io/profile',
+            'https://0398-203-110-242-41.in.ngrok.io/profile',
             {
               email: username,
             },
