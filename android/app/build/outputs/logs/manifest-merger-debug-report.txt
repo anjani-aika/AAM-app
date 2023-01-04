@@ -19,6 +19,7 @@ MERGED from [:react-native-community_masked-view] C:\Users\debay\Desktop\SAC-APP
 MERGED from [:react-native-gesture-handler] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-splash-screen] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-splash-screen\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\debay\.gradle\caches\transforms-3\317efabfdfd4e85f8e2e2bf2fff36487\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\debay\.gradle\caches\transforms-3\eb7552118701046f2690e9b7599e93ad\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -325,6 +326,8 @@ MERGED from [:react-native-safe-area-context] C:\Users\debay\Desktop\SAC-APP\nod
 MERGED from [:react-native-safe-area-context] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-splash-screen] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-splash-screen\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-splash-screen] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-splash-screen\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] C:\Users\debay\Desktop\SAC-APP\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\debay\.gradle\caches\transforms-3\317efabfdfd4e85f8e2e2bf2fff36487\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:5:5-7:41
