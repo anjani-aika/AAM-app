@@ -36,11 +36,11 @@ const Home = () => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible(!modal1)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
            
           <Image source={require('../images/eia.webp')} style={styles.imq} />
             <Text style={styles.heading}> ENTERTANIA </Text>
@@ -64,11 +64,11 @@ const Home = () => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible2(!modal2)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/m.webp')} style={styles.imq} />
             <Text style={styles.heading}> 2.2 Marathon </Text>
             <Text style={styles.modalText}>Push yourself to the limit as you conquer the challenging course and celebrate your achievements with fellow alums and runners.</Text>
@@ -91,11 +91,11 @@ const Home = () => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-           <TouchableOpacity
+           {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible3(!modal3)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/ct.webp')} style={styles.imq} />
             <Text style={styles.heading}> CAMPUS TOUR </Text>
             <Text style={styles.modalText}> A Campus Tour is a great way to feel for the college and remember the places where you spent beautiful days of your life. Visits to campus tours are excellent methods to recall bygone eras. Being in the exact location as one was throughout their most significant moments is evocative. It brings everything back.The alums find it amusing to talk about the developments since they left campus. Walking through those halls, parks, and streets is like stepping back in time.
@@ -119,11 +119,11 @@ const Home = () => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible4(!modal4)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/hv.webp')} style={styles.imq} />
             <Text style={styles.heading}> HALL VISIT </Text>
             <Text style={styles.modalText}>Halls play a significant role in KGPian life. Every KGPian has a special place in their heart for the memories of halls. KGPians
@@ -147,11 +147,11 @@ have a lifelong emotional bond with and loyalty to their halls. With that said, 
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible5(!modal5)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/illu.webp')} style={styles.imq} />
             <Text style={styles.heading}> ILLUMINATION </Text>
             <Text style={styles.modalText}> Festive atmosphere, Good company and Mellow vibes….
@@ -177,11 +177,11 @@ Illumination is one of the oldest and most unique traditions of KGP culture. The
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible6(!modal6)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/depv.webp')} style={styles.imq} />
             <Text style={styles.heading}> DEP. VISIT </Text>
             <Text style={styles.modalText}> Visits to departments are excellent methods to recall bygone eras. Being in the same location as one was throughout their most significant moments is evocative. It brings everything back.
@@ -205,11 +205,11 @@ The alumni find it amusing to talk about the developments since they left campus
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible7(!modal7)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/iff.webp')} style={styles.imq} />
             <Text style={styles.heading}>Institute Function</Text>
             <Text style={styles.modalText}> The inauguration ceremony marks the beginning of the Annual Alumni meet, which witnesses the presence and participation of all the alums attending the meet with their families. The event is graced with the presence of the respected Director and Deans of IIT Kharagpur. The whole auditorium is filled with electrifying vibes. The event is under media coverage, where batch photos are taken and souvenirs are distributed. </Text>
@@ -233,11 +233,11 @@ The alumni find it amusing to talk about the developments since they left campus
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
               style={styles.crossBu}
               onPress={() => setModalVisible8(!modal8)} >
                 <Image source={require('../images/cross.png')} style={styles.cross} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <Image source={require('../images/depv.webp')} style={styles.imq} />
             <Text style={styles.heading}>Gala Dinner</Text>
             <Text style={styles.modalText}> An evening of elegance and sophistication - The 19th Annual Alumni Gala Dinner, where we celebrate the enduring bond of our IIT Kharagpur community and toast the achieved success. Don your finest attire and raise a glass to the achievements of our esteemed alums as we come together to revive old memories and create new ones.</Text>
@@ -392,7 +392,8 @@ const styles = StyleSheet.create({
   blue: {
     marginLeft: 40,
     marginTop: 15,
-    fontSize: 25,
+    marginBottom:10,
+    fontSize: 30,
     color: 'black',
     fontWeight: 'bold',
   },
@@ -417,7 +418,7 @@ const styles = StyleSheet.create({
     height: 210,
     backgroundColor: '#82AAE3',
     marginTop: 20,
-    marginLeft: 40,
+    marginLeft: 20,
     borderRadius: 20,
   },
   first1: {
@@ -449,15 +450,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
+    marginRight:10,
   },
   heading:{
     margin:5,
     //flex:1,
     justifyContent: "center",
-    fontSize: 35,
+    fontSize: 30,
     color:"#144272",
-    //padding: 7,
     fontWeight: "bold",
   },
 
@@ -469,9 +470,10 @@ marginTop:-25,
   },
 
   crossBu:{
-width:23,
-height:23,
+width:25,
+height:25,
 color:"white",
+marginRight:5,
   },
   modalView: {
     margin: 20,
@@ -481,6 +483,7 @@ color:"white",
     backgroundColor: "#82AAE3", // Background color of modal.
     borderRadius: 20,
     padding: 35,
+    marginRight:10,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {

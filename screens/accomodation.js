@@ -96,12 +96,13 @@ const styles = StyleSheet.create({
     borderColor: '#C2CFD8',
     padding: 10,
     justifyContent: 'center',
-    opacity: 0.5,
+    opacity: 0.9,
+    backgroundColor:'#82AAE3'
   },
   textTab: {
     fontWeight: "bold",
     fontSize: 20 ,
-    color:'black'
+    color:'#543A3A'
   },
   btnTabActive: {
     backgroundColor: '#82AAE3',

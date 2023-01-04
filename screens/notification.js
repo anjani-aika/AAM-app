@@ -82,9 +82,9 @@ const Notification = () => {
       <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
+            <Text style={styles.textf}>   Event: Institute Function</Text>
+            <Text style={styles.textf}>   Time: 1:30-3:30 pm</Text>
+            <Text style={styles.textf}>   Venue: Kalidas Audi</Text>
           </View>
           <View style={styles.buttonContainer}>
             <Button
@@ -102,9 +102,9 @@ const Notification = () => {
       <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
+            <Text style={styles.textf}>   Event: Department Visit</Text>
+            <Text style={styles.textf}>   Time: 3:30-5:30</Text>
+            <Text style={styles.textf}>   Venue: Pickup from Arena</Text>
           </View>
           <View style={styles.buttonContainer}>
             <Button
@@ -122,9 +122,9 @@ const Notification = () => {
       <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
+            <Text style={styles.textf}>   Event: Hall Visit</Text>
+            <Text style={styles.textf}>   Time: 10-11:30 pm</Text>
+            <Text style={styles.textf}>   Venue: Pickup from Arena</Text>
           </View>
           <View style={styles.buttonContainer}>
             <Button
@@ -142,9 +142,9 @@ const Notification = () => {
       <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
+            <Text style={styles.textf}>   Event: Campus Tour</Text>
+            <Text style={styles.textf}>   Time: 9:30-12:30 pm</Text>
+            <Text style={styles.textf}>   Venue: Pickup from Arena</Text>
           </View>
           <View style={styles.buttonContainer}>
             <Button
@@ -162,9 +162,72 @@ const Notification = () => {
       <View style={styles.card}>
         <View style={styles.cardContent}>
           <View style={styles.Content}>
-            <Text style={styles.textf}>Event:</Text>
-            <Text style={styles.textf}>Time:</Text>
-            <Text style={styles.textf}>Venue:</Text>
+            <Text style={styles.textf}>  Event:  Entertainia</Text>
+            <Text style={styles.textf}>  Time:   4:30 -7 pm</Text>
+            <Text style={styles.textf}>  Venue:  Starts TOAT         </Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title="Map"
+              onPress={() => {
+                Linking.openURL(
+                  `https://www.google.com/maps/place/Tagore+Open+Air+Theatre/@22.3187495,87.3069661,17z/data=!3m1!4b1!4m5!3m4!1s0x3a1d44048a057481:0x3981045c96c19252!8m2!3d22.3187495!4d87.3091548`,
+                );
+              }}
+              color="#afbfe1"
+            />
+          </View>
+        </View>
+      </View>
+
+
+      <View style={styles.card}>
+        <View style={styles.cardContent}>
+          <View style={styles.Content}>
+            <Text style={styles.textf}> Event:     GALA  Dinner </Text>
+            <Text style={styles.textf}> Time:      8:00 - 10:00 pm </Text>
+            <Text style={styles.textf}> Venue:     Arena  </Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title="Map"
+              onPress={() => {
+                Linking.openURL(
+                  `https://www.google.com/maps?q=kalidas+auditorium+iit+kharagpur&sa=X&ved=2ahUKEwj0o4bElPn7AhVn4DgGHWxwBJgQ0pQJegQICBAB`,
+                );
+              }}
+              color="#afbfe1"
+            />
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <View style={styles.cardContent}>
+          <View style={styles.Content}>
+            <Text style={styles.textf}>    Event: Run for KGP</Text>
+            <Text style={styles.textf}>    Time: 7-8:15 pm</Text>
+            <Text style={styles.textf}>    Venue: Starts Gymkhana</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title="Map"
+              onPress={() => {
+                Linking.openURL(
+                  `https://www.google.com/maps/place/Technology+Students'+Gymkhana/@22.3187312,87.3003411,17z/data=!3m1!4b1!4m5!3m4!1s0x3a1d4407422c1675:0xa2d9d15d09ca4c4!8m2!3d22.3187312!4d87.3025298`,
+                );
+              }}
+              color="#afbfe1"
+            />
+          </View>
+        </View>
+      </View>
+      <View style={styles.card}>
+        <View style={styles.cardContent}>
+          <View style={styles.Content}>
+            <Text style={styles.textf}> Event:  Closing Ceremony</Text>
+            <Text style={styles.textf}> Time:  10-12:00 pm</Text>
+            <Text style={styles.textf}> Venue:  Kalidas Audi</Text>
           </View>
           <View style={styles.buttonContainer}>
             <Button
@@ -207,7 +270,7 @@ const styles = StyleSheet.create({
   textf: {
     color: 'white',
     fontWeight: '400',
-    fontSize: 20,
+    fontSize: 15,
   },
 
   buttonContainer: {

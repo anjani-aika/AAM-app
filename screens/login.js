@@ -60,7 +60,7 @@ const Login = () => {
           onChangeText={onChangeEmail}
         />
 
-        <Text style={styles.email}>Password</Text>
+        <Text style={styles.email}>Password YYYY</Text>
         <TextInput
           style={styles.input}
           placeholder="Password"
@@ -78,7 +78,7 @@ const Login = () => {
           loginfn();
         }}
       />
-      <Text style={styles.texts1}>Forgot your password?</Text>
+      <Text style={styles.texts1}>Put Dob as Password (YYYY-MM-DD) </Text>
     </View></ScrollView>
   );
 };
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginTop: 21,
     textAlign: 'center',
-    color: 'blue',
-    textDecorationLine: 'underline',
+    color: '#6B728E',
+    // textDecorationLine: 'underline',
   },
 
   email: {

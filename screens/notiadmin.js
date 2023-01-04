@@ -52,7 +52,7 @@ const Notiadmin = () => {
           return docSnap.data().token;
         });
         console.log(userDevicetoken);
-        fetch('https://0398-203-110-242-41.in.ngrok.io/send-noti', {
+        fetch('https://0842-203-110-242-41.in.ngrok.io/send-noti', {
           method: 'post',
           headers: {
             Accept: 'application/json',

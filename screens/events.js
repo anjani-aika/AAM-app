@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
     borderColor: '#C2CFD8',
     padding: 10,
     justifyContent: 'center',
-    opacity: 0.5,
+    opacity: 0.9,
+    backgroundColor:'#144272'
   },
   textTab: {
     fontWeight: "bold",

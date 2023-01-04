@@ -46,7 +46,7 @@ const App = () => {
     login: async (email, password) => {
       try {
         const data = await axios.post(
-          'https://0398-203-110-242-41.in.ngrok.io/loginn',
+          'https://0842-203-110-242-41.in.ngrok.io/loginn',
           {
             email: email,
             dob: password,

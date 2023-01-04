@@ -825,8 +825,8 @@ const data2 = [
 ];
 
 const Accoy = () => {
-  const [year, setYear] = useState();
-  const [datalist, setDatalist] = useState();
+  const [year, setYear] = useState('1973');
+  const [datalist, setDatalist] = useState(data2);
   const setYearFilter = (year) => {
     setDatalist([...data.filter((e) => e.year === year)]);
     setYear(year);
@@ -881,6 +881,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     marginBottom: 20, 
+    backgroundColor:'#205295'
   },
   btnTab:{
     width: Dimensions.get('window').width / 3.15,
@@ -890,7 +891,7 @@ const styles = StyleSheet.create({
     borderColor: '#205295',
     padding: 10,
     justifyContent: 'center',
-    opacity: 0.5,
+    opacity: 0.9,
     color:'black'
   },
   textTab:{
