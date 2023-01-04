@@ -23,28 +23,52 @@ const Profile = () => {
   const [hall, setHall] = useState('');
   const [yor, setYor] = useState('');
   const getProfile = () => {
-    AsyncStorage.getItem('userToken').then(async res => {
-      if (res) {
-        const {username} = JSON.parse(res);
-        if (username) {
-          //console.log(username);
-          const data = await axios.post(
-            'https://0842-203-110-242-41.in.ngrok.io/profile',
-            {
-              email: username,
-            },
-          );
-          console.log(data.data);
-          setName(data.data[0].name);
-          setEmail(data.data[0].email);
-          setCity(data.data[0].city);
-          setGuest(data.data[0].guest);
-          setHall(data.data[0].hall);
-          setYor(data.data[0].yor);
-          setPhone(data.data[0].phone);
-        }
+    AsyncStorage.getItem('userInfo').then(res=>{
+      if(res){
+        const {name,email,city,guest,hall,yor,phone}=JSON.parse(res);
+          setName(name);
+          setEmail(email);
+          setCity(city);
+          setGuest(guest);
+          setHall(hall);
+          setYor(yor);
+          setPhone(phone);
+      }else{
+        AsyncStorage.getItem('userToken').then(async res => {
+          if (res) {
+            const {username} = JSON.parse(res);
+            if (username) {
+              //console.log(username);
+              const data = await axios.post(
+                'https://471a-203-110-242-40.ngrok.io/profile',
+                {
+                  email: username,
+                },
+              );
+              console.log(data.data);
+              setName(data.data[0].name);
+              setEmail(data.data[0].email);
+              setCity(data.data[0].city);
+              setGuest(data.data[0].guest);
+              setHall(data.data[0].hall);
+              setYor(data.data[0].yor);
+              setPhone(data.data[0].phone);
+              await AsyncStorage.setItem('userInfo',JSON.stringify({
+                name:data.data[0].name ,
+                email:data.data[0].email,
+                city:data.data[0].city ,
+                guest:data.data[0].guest ,
+                hall:data.data[0].hall ,
+                yor:data.data[0].yor ,
+                phone: data.data[0].phone
+              }));
+            }
+          }
+        });
+
       }
-    });
+    })
+    
   };
 
   useEffect(() => {
@@ -64,9 +88,9 @@ const Profile = () => {
       <ScrollView>
         <SafeAreaView style={styles.container}>
           <View style={styles.userInfoSection}>
-            <View style={{flexDirection: 'row', marginTop: 30}}>
+            <View style={{flexDirection: 'row', marginTop: 30,justifyContent:'center',alignItems:'center'}}>
               <Avatar.Image
-                style={{marginTop: 0, marginRight: 10, marginBottom: 6}}
+                style={{marginTop: 0, marginRight: 10, marginBottom: 20}}
                 source={require('../assets/profile.png')}
                 size={80}
               />
@@ -75,7 +99,10 @@ const Profile = () => {
                   style={[
                     styles.Text,
                     {
+                      color:'white',
+                      fontSize:18,
                       marginTop: 6,
+                      fontWeight:'700',
                       marginBottom: 0,
                     },
                   ]}>
@@ -121,7 +148,7 @@ const Profile = () => {
                   fontWeight: 'bold',
                   fontSize: 16,
                 }}>
-                {phone}
+                {phone==null?'--':phone}
               </Text>
             </View>
             <View style={styles.row}>
@@ -158,53 +185,57 @@ const Profile = () => {
                   fontWeight: 'bold',
                   fontSize: 16,
                 }}>
-                {guest}
+                {guest==null?'--':guest}
               </Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={{color: '#6B728E', marginLeft: 25, marginTop: 5}}>
+                Batch
+              </Text>
+            </View>
+            <View style={styles.row}>
+              {/* <Icon name="phone" color="#777777" size={35} style={{marginTop:0}}/> */}
+              <Text
+                style={{
+                  color: '#2C74B3',
+                  marginLeft: 25,
+                  marginTop: 0,
+                  fontWeight: 'bold',
+                  fontSize: 16,
+                }}>
+                {yor==null?'--':yor}
+              </Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={{color: '#6B728E', marginLeft: 25, marginTop: 5}}>
+                Hall of Residence
+              </Text>
+            </View>
+            <View style={styles.row}>
+              {/* <Icon name="phone" color="#777777" size={35} style={{marginTop:0}}/> */}
+              <Text
+                style={{
+                  color: '#2C74B3',
+                  marginLeft: 25,
+                  marginTop: 0,
+                  fontWeight: 'bold',
+                  fontSize: 16,
+                }}>
+                {hall}
+              </Text>
+            </View>
+            <View style={{flex:1,marginTop:30,width:150,paddingLeft:25}}>
+            <Button
+              style={{marginLeft:25,width:20}}
+              title="LogOut"
+              onPress={() => {
+                logout();
+              }}
+            />
             </View>
           </View>
 
-          <View style={styles.infoBoxWrapper}>
-            <View
-              style={[
-                styles.infoBox,
-                {
-                  borderRightColor: '#91D8E4',
-                  // borderRightWidth:1
-                },
-              ]}>
-              <Title
-                style={{
-                  fontWeight: 'bold',
-                  color: '#0A2647',
-                  marginRight: 240,
-                }}>
-                {' '}
-                {yor}{' '}
-              </Title>
-              <Caption style={{fontWeight: 'bold', marginRight: 250}}>
-                Batch
-              </Caption>
-            </View>
-            <View style={styles.infoBox}>
-              <Title
-                style={{
-                  marginRight: 135,
-                  fontWeight: 'bold',
-                  color: '#0A2647',
-                }}>
-                {hall == 'select' ? '-' : hall}
-              </Title>
-              <Caption style={{marginRight: 180, fontWeight: 'bold'}}>
-                Hall of Residence
-              </Caption>
-            </View>
-          </View>
-          <Button
-            title="LogOut"
-            onPress={() => {
-              logout();
-            }}
-          />
+         
           {email == 'admin@gmail.com' ? <Notiadmin /> : null}
         </SafeAreaView>
       </ScrollView>
@@ -220,8 +251,9 @@ const styles = StyleSheet.create({
   userInfoSection: {
     paddingHorizontal: 30,
     marginBottom: 30,
+    marginTop:40,
     backgroundColor: '#205295',
-    borderRadius: 6,
+    borderRadius: 0,
   },
   userInfoSection2: {
     marginLeft: 20,

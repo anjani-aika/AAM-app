@@ -1,0 +1,47 @@
+[33m1f45eb6e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m FrontEnd
+[33m62baa59d[m changed gitignore
+[33m23ea21d3[m node modules renmoved
+[33md3c95a49[m added gitignore
+[33mddbda76e[m Login page Keyboard sorted
+[33m17a03eae[m #icons_sorted
+[33m2312e8cd[m #most_of_the_app_sorted
+[33mf452765f[m #login_sorted
+[33m7762f708[m node modules removed
+[33m4b0f7445[m Changed Css Notification
+[33m225747fe[m Changed CSS notification
+[33m07545829[m Changed notification icon
+[33mbc1e3afd[m Update index.js
+[33m37e3110c[m Noti added
+[33m657b5442[m added modal
+[33m0972e5aa[m Merge pull request #5 from pegasus7d/main
+[33m83b2781d[m Notification to multiple devices through backend is working
+[33m8e111480[m Merge branch 'main' of https://github.com/pegasus7d/AAM-app
+[33m5c0f4e2b[m sending the fcm token to firebase firestore database
+[33m22639e27[m Merge pull request #4 from pegasus7d/main
+[33maf5acd54[m made an api to push notification using node js and fcm token
+[33m8752518e[m Merge pull request #3 from pegasus7d/main
+[33m205de386[m added push notification using firebase
+[33m553fd859[m Update notification.js
+[33m7e9834db[m Update notification.js
+[33m49ec0748[m Done some changes in css
+[33m4e4cf547[m first commit
+[33mdb9684f8[m first commit
+[33m524413aa[m Merge branch 'main' of https://github.com/shreyaa-1/AAM-app
+[33m379e3d37[m commit
+[33mb841b0b1[m Create year.js
+[33m3b8d0d5e[m Create hall.js
+[33mb484f370[m Update accomodation.js
+[33mb541eee4[m[33m ([m[1;31morigin/debayan[m[33m)[m added the notification page
+[33m20da82a8[m Merge pull request #1 from shreyaa-1/pushpu77-patch-profile
+[33m6874090e[m Update profile.js
+[33me23ff0a2[m OTP
+[33m1345ab16[m login page
+[33mdadf9fc3[m commit
+[33m5f5c223c[m commit
+[33mf801e07f[m commit
+[33mb0ee3804[m commit
+[33m5bc53688[m commit
+[33m269d3e4c[m commit
+[33ma51706f9[m commit
+[33m43f4d02e[m commit
+[33m972109f6[m first commit
